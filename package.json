@@ -1,0 +1,41 @@
+{
+  "name": "roluna",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.1",
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@fortawesome/free-brands-svg-icons": "^6.6.0",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.1.5",
+    "@vue/shared": "^3.5.13",
+    "animate.css": "^4.1.1",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "element-plus": "^2.9.0",
+    "pinia": "^2.2.4",
+    "swiper": "^11.1.15",
+    "three": "^0.177.0",
+    "unplugin-auto-import": "^0.18.3",
+    "unplugin-vue-components": "^0.27.4",
+    "vue": "^3.5.13",
+    "vue-multiselect": "^3.1.0",
+    "vue-router": "^4.4.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "rollup-plugin-visualizer": "^5.12.0",
+    "tailwindcss": "^3.4.16",
+    "vite": "^6.0.1"
+  }
+}
