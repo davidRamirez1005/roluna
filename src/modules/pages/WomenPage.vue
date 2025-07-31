@@ -101,7 +101,7 @@
             <i class="fas fa-comments mr-2"></i>
             Asesora de Moda
           </button>
-          <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-pink-600 transition-all duration-300">
+          <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibol hover:shadow-lg transition-all duration-300 transform hover:scale-105">
             <i class="fas fa-female mr-2"></i>
             Lookbook
           </button>

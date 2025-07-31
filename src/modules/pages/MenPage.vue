@@ -101,7 +101,7 @@
             <i class="fas fa-comments mr-2"></i>
             Asesor Especializado
           </button>
-          <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300">
+          <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
             <i class="fas fa-male mr-2"></i>
             Guía de Estilo
           </button>

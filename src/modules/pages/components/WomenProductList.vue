@@ -27,7 +27,7 @@
     <!-- Grid de productos -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <ProductCard 
-        v-for="product in sortedProducts" 
+        v-for="product in paginatedProducts" 
         :key="product.id" 
         :product="product" 
         @add-to-cart="handleAddToCart" 
@@ -49,12 +49,23 @@
         Limpiar filtros
       </button>
     </div>
+
+    <!-- Componente de paginación -->
+    <Paginate
+      v-if="filteredProducts.length > 0"
+      :current-page="currentPage"
+      :total-items="filteredProducts.length"
+      :items-per-page="itemsPerPage"
+      @page-change="handlePageChange"
+      @items-per-page-change="handleItemsPerPageChange"
+    />
   </div>
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import ProductCard from './ProductCard.vue'
+import Paginate from '../../../shared/components/Paginate.vue'
 import { useCart } from '../../../shared/components/useCart.js'
 
 const props = defineProps({
@@ -67,6 +78,15 @@ const emit = defineEmits(['clear-filters'])
 
 const { addToCart } = useCart()
 const sortBy = ref('name')
+
+// Estados de paginación
+const currentPage = ref(1)
+const itemsPerPage = ref(20)
+
+// Resetear página al cambiar filtros o categoría
+watch(() => [props.category, props.filters], () => {
+  currentPage.value = 1
+}, { deep: true })
 
 // Productos filtrados
 const filteredProducts = computed(() => {
@@ -103,6 +123,13 @@ const sortedProducts = computed(() => {
   }
 })
 
+// Productos paginados
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value
+  const end = start + itemsPerPage.value
+  return sortedProducts.value.slice(start, end)
+})
+
 const getCategoryLabel = (categoryKey) => {
   const categoryLabels = {
     collares: 'Collares Femeninos',
@@ -121,6 +148,16 @@ const handleAddToCart = (product) => {
 
 const clearAllFilters = () => {
   emit('clear-filters')
+}
+
+// Funciones de paginación
+const handlePageChange = (page) => {
+  currentPage.value = page
+}
+
+const handleItemsPerPageChange = (newItemsPerPage) => {
+  itemsPerPage.value = newItemsPerPage
+  currentPage.value = 1
 }
 </script>
 

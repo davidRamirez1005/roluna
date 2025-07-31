@@ -1,16 +1,39 @@
 <template>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-    <ProductCard
-      v-for="product in filteredProducts"
-      :key="product.id"
-      :product="product"
+  <div class="space-y-6">
+    <!-- Grid de productos -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <ProductCard
+        v-for="product in paginatedProducts"
+        :key="product.id"
+        :product="product"
+      />
+    </div>
+
+    <!-- Mensaje cuando no hay productos -->
+    <div v-if="filteredProducts.length === 0" class="text-center py-16">
+      <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+        <i class="fas fa-search text-gray-400 text-2xl"></i>
+      </div>
+      <h3 class="text-lg font-semibold text-gray-800 mb-2">No se encontraron productos</h3>
+      <p class="text-gray-600 mb-6">Intenta ajustar los filtros para ver más opciones</p>
+    </div>
+
+    <!-- Componente de paginación -->
+    <Paginate
+      v-if="filteredProducts.length > 0"
+      :current-page="currentPage"
+      :total-items="filteredProducts.length"
+      :items-per-page="itemsPerPage"
+      @page-change="handlePageChange"
+      @items-per-page-change="handleItemsPerPageChange"
     />
   </div>
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import ProductCard from './ProductCard.vue'
+import Paginate from '../../../shared/components/Paginate.vue'
 
 // Simulación de productos con subcategorías
 const products = [
@@ -44,6 +67,15 @@ const props = defineProps({
   filters: Object
 })
 
+// Estados de paginación
+const currentPage = ref(1)
+const itemsPerPage = ref(4)
+
+// Resetear página al cambiar filtros
+watch(() => [props.category, props.filters], () => {
+  currentPage.value = 1
+}, { deep: true })
+
 const filteredProducts = computed(() => {
   console.log('ProductList - Category:', props.category, 'Filters:', props.filters) // Debug log
   let filtered = products.filter(p => p.category === props.category)
@@ -64,4 +96,21 @@ const filteredProducts = computed(() => {
   console.log('Productos filtrados:', filtered.length) // Debug log
   return filtered
 })
+
+// Productos paginados
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage.value
+  const end = start + itemsPerPage.value
+  return filteredProducts.value.slice(start, end)
+})
+
+// Funciones de paginación
+const handlePageChange = (page) => {
+  currentPage.value = page
+}
+
+const handleItemsPerPageChange = (newItemsPerPage) => {
+  itemsPerPage.value = newItemsPerPage
+  currentPage.value = 1
+}
 </script>
