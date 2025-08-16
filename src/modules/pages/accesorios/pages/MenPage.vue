@@ -118,15 +118,15 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import Header from '../../shared/components/Header.vue'
-import MenCategoriesNav from './components/MenCategoriesNav.vue'
-import MenProductFilters from './components/MenProductFilters.vue'
-import MenProductList from './components/MenProductList.vue'
-import ContactSection from '../../shared/components/ContactSection.vue'
-import Footer from '../../shared/components/Footer.vue'
-import CartSidebar from '../../shared/components/CartSidebar.vue'
-import Chatbot from '../../shared/components/Chatbot.vue'
-import { provideCart } from '../../shared/components/useCart.js'
+import Header from '@shared/components/Header.vue'
+import Footer from '@shared/components/Footer.vue'
+import CartSidebar from '@shared/components/CartSidebar.vue'
+import Chatbot from '@shared/components/Chatbot.vue'
+import ContactSection from '@shared/components/ContactSection.vue'
+import { provideCart } from '@shared/components/useCart.js'
+import MenCategoriesNav from '../components/men/MenCategoriesNav.vue'
+import MenProductFilters from '../components/men/MenProductFilters.vue'
+import MenProductList from '../components/men/MenProductList.vue'
 
 provideCart()
 

@@ -1,10 +1,7 @@
-import homeVue from "./routes";
+import homeVue from "./routes"
+import { authRoutes } from '../../modules/auth/routes.js'
 
 export default [
-    {
-        path: '/:catchAll(.*)',
-        component: () => import('../../modules/auth/components/404.vue'),
-        meta: { name: 'Not Found', title: "404 No Encontrado" },
-    },
-    ...homeVue
+    ...homeVue,
+    ...authRoutes
 ];

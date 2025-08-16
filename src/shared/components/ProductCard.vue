@@ -21,7 +21,7 @@
   </div>
 </template>
 <script setup>
-import { useCart } from '../../../shared/components/useCart.js'
+import { useCart } from '@shared/components/useCart.js'
 
 const { addToCart } = useCart()
 

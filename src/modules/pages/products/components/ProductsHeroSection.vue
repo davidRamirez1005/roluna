@@ -24,5 +24,5 @@
 </template>
 
 <script setup>
-import ThreeDViewer from '../../../shared/components/ThreeDViewer.vue'
+import ThreeDViewer from '@shared/components/ThreeDViewer.vue'
 </script>

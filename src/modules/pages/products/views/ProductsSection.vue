@@ -95,15 +95,15 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import Header from '../../shared/components/Header.vue'
-import ProductsHeroSection from './components/ProductsHeroSection.vue'
-import ProductCategoriesNav from './components/ProductCategoriesNav.vue'
-import ProductCategorySection from './components/ProductCategorySection.vue'
-import ContactSection from '../../shared/components/ContactSection.vue'
-import Footer from '../../shared/components/Footer.vue'
-import CartSidebar from '../../shared/components/CartSidebar.vue'
-import Chatbot from '../../shared/components/Chatbot.vue'
-import { provideCart } from '../../shared/components/useCart.js'
+import Header from '@shared/components/Header.vue'
+import ProductsHeroSection from '../components/ProductsHeroSection.vue'
+import ProductCategoriesNav from '../components/ProductCategoriesNav.vue'
+import ProductCategorySection from '../components/ProductCategorySection.vue'
+import ContactSection from '@shared/components/ContactSection.vue'
+import Footer from '@shared/components/Footer.vue'
+import CartSidebar from '@shared/components/CartSidebar.vue'
+import Chatbot from '@shared/components/Chatbot.vue'
+import { provideCart } from '@shared/components/useCart.js'
 
 provideCart()
 

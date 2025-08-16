@@ -46,10 +46,10 @@
 
 <script setup>
 import { ref, computed, watch } from 'vue'
-import ProductCard from '../../pages/components/ProductCard.vue'
-import CategoryButton from '../../pages/components/CategoryButton.vue'
-import Paginate from '../../../shared/components/Paginate.vue'
-import { useCart } from '../../../shared/components/useCart.js'
+import ProductCard from '@shared/components/ProductCard.vue'
+import CategoryButton from '@shared/components/CategoryButton.vue'
+import Paginate from '@shared/components/Paginate.vue'
+import { useCart } from '@shared/components/useCart.js'
 
 const { addToCart } = useCart()
 

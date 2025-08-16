@@ -804,12 +804,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import Header from '../../shared/components/Header.vue'
-import Footer from '../../shared/components/Footer.vue'
-import CartSidebar from '../../shared/components/CartSidebar.vue'
-import Chatbot from '../../shared/components/Chatbot.vue'
-import { provideCart } from '../../shared/components/useCart.js'
-import ContactSection from '../../shared/components/ContactSection.vue'
+import Header from '@shared/components/Header.vue'
+import Footer from '@shared/components/Footer.vue'
+import CartSidebar from '@shared/components/CartSidebar.vue'
+import Chatbot from '@shared/components/Chatbot.vue'
+import { provideCart } from '@shared/components/useCart.js'
+import ContactSection from '@shared/components/ContactSection.vue'
 
 provideCart()
 

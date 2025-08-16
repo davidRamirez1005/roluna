@@ -19,8 +19,8 @@
 </template>
 
 <script setup>
-import ProductCard from '../../pages/components/ProductCard.vue'
-import { useCart } from '../../../shared/components/useCart.js'
+import ProductCard from '@shared/components/ProductCard.vue'
+import { useCart } from '@shared/components/useCart.js'
 
 const { addToCart } = useCart()
 

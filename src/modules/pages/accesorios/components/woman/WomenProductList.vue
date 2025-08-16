@@ -64,9 +64,9 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import ProductCard from './ProductCard.vue'
-import Paginate from '../../../shared/components/Paginate.vue'
-import { useCart } from '../../../shared/components/useCart.js'
+import ProductCard from '@shared/components/ProductCard.vue'
+import Paginate from '@shared/components/Paginate.vue'
+import { useCart } from '@shared/components/useCart.js'
 
 const props = defineProps({
   category: String,

@@ -32,8 +32,8 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue'
-import ProductCard from './ProductCard.vue'
-import Paginate from '../../../shared/components/Paginate.vue'
+import ProductCard from '@shared/components/ProductCard.vue'
+import Paginate from '@shared/components/Paginate.vue'
 
 // Simulación de productos con subcategorías
 const products = [
@@ -69,7 +69,7 @@ const props = defineProps({
 
 // Estados de paginación
 const currentPage = ref(1)
-const itemsPerPage = ref(4)
+const itemsPerPage = ref(10)
 
 // Resetear página al cambiar filtros
 watch(() => [props.category, props.filters], () => {

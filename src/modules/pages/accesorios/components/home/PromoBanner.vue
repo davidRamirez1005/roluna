@@ -29,5 +29,5 @@
 </template>
 <script setup>
 // Promo Banner
-import ThreeDViewer from '../../../shared/components/ThreeDViewer.vue'
+import ThreeDViewer from '@shared/components/ThreeDViewer.vue'
 </script>

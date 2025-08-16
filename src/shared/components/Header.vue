@@ -33,11 +33,20 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { useCart } from './useCart.js'
+
+const route = useRoute()
 const mobileMenu = ref(false)
 const { cart } = useCart()
 const cartCount = computed(() => cart.value.reduce((t, i) => t + (i.quantity || 0), 0))
+
+// Cerrar menú móvil cuando cambie la ruta
+watch(() => route.path, () => {
+  mobileMenu.value = false
+})
+
 function toggleMenu() {
   mobileMenu.value = !mobileMenu.value
 }
